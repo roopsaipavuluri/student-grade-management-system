@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="notice" class="notice hidden" role="status"></div>
+
+<header>
+    <h1>Student Grade & Result Management System</h1>
+    <p>Manage students, marks, grades and results</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+        <div class="card">
+            <h3>Total Students</h3>
+            <p id="studentCount">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Subjects</h3>
+            <p id="subjectCount">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Results</h3>
+            <p id="resultCount">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pass Rate</h3>
+            <p id="passRate">0%</p>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button onclick="showSection('students')">Students</button>
+        <button onclick="showSection('subjects')">Subjects</button>
+        <button onclick="showSection('marks')">Enter Marks</button>
+        <button onclick="showSection('results')">Results</button>
+    </div>
+
+    <!-- Students -->
+
+    <section id="students">
+
+        <h2>Add Student</h2>
+
+        <form id="studentForm">
+
+            <input type="text" id="rollNo"
+                   placeholder="Roll Number" required>
+
+            <input type="text" id="studentName"
+                   placeholder="Student Name" required>
+
+            <input type="email" id="email"
+                   placeholder="Email">
+
+            <input type="text" id="course"
+                   placeholder="Course" required>
+
+            <input type="number" id="year"
+                   placeholder="Year" min="1" max="6" required>
+
+            <button type="submit">Add Student</button>
+
+        </form>
+
+        <h2>Student List</h2>
+
+        <input type="text"
+               id="searchStudent"
+               placeholder="Search student..."
+               onkeyup="searchStudents()">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentTable"></tbody>
+        </table>
+
+    </section>
+
+
+    <!-- Subjects -->
+
+    <section id="subjects" class="hidden">
+
+        <h2>Add Subject</h2>
+
+        <form id="subjectForm">
+
+            <input type="text"
+                   id="subjectCode"
+                   placeholder="Subject Code"
+                   required>
+
+            <input type="text"
+                   id="subjectName"
+                   placeholder="Subject Name"
+                   required>
+
+            <button type="submit">
+                Add Subject
+            </button>
+
+        </form>
+
+        <h2>Subject List</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+
+            <tbody id="subjectTable"></tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- Marks -->
+
+    <section id="marks" class="hidden">
+
+        <h2>Enter Student Marks</h2>
+
+        <form id="resultForm">
+
+            <select id="studentSelect" required>
+                <option value="">Select Student</option>
+            </select>
+
+            <select id="subjectSelect" required>
+                <option value="">Select Subject</option>
+            </select>
+
+            <input type="number"
+                   id="marks"
+                   placeholder="Marks"
+                   min="0"
+                   max="100"
+                   required>
+
+            <button type="submit">
+                Save Result
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Results -->
+
+    <section id="results" class="hidden">
+
+        <h2>Student Results</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Student</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="resultTable"></tbody>
+
+        </table>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

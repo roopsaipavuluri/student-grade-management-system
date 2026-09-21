@@ -1,0 +1,17 @@
+{
+  "nextStudentId": 2,
+  "nextSubjectId": 1,
+  "nextResultId": 1,
+  "students": [
+    {
+      "id": 1,
+      "rollNo": "CSE01",
+      "name": "Roop sai",
+      "email": "",
+      "course": "DBMS",
+      "year": 4
+    }
+  ],
+  "subjects": [],
+  "results": []
+}
